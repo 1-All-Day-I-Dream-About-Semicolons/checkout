@@ -1,4 +1,8 @@
 var faker = require('faker');
+var mongoose = require('mongoose');
+var dbModels = require('/home/rolo/Documents/SEI-hrsf131/checkout/server/db/schemas.js');
+
+mongoose.connect('mongodb://localhost/checkout');
 
 //array of imagelinks
 var imageLinks = [
@@ -44,10 +48,15 @@ for (var i = 0; i < 100; i++) {
       
     }
     products.push(product);
+    dbModels.insertOne(product, (err, result) => {
+        console.log(product);
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(result);
+        }
+    });
 }
-console.log(products);
-console.log(products[0].reviews[0]);
-console.log(products[0].stock[0]);
 
 
 

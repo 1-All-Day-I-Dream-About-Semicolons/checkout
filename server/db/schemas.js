@@ -29,15 +29,11 @@ var userSchema = mongoose.Schema({
     request: [Number]
 });
 
-var productModel = mongoose.model('Item', itemSchema);
+var productModel = mongoose.model('Product', productSchema);
 var userModel = mongoose.model('User', userSchema);
 
-function findAll(query, callback) {
-    if (query === 'items') {
-        productModel.find({}, callback);
-    } else if (query === 'users') {
-        userModel.find({}, callback);
-    }
+function findAll(callback) {
+    productModel.find({}, callback);
 }
 
 function findProductByName(itemName, callback) {
@@ -51,15 +47,8 @@ function findProductById(id, callback) {
 }
 //......................................
 // only to be used for seeding purposes:
-function insertOne(query, obj, productId, callback) {
-    if (query === 'item') {
-        productModel.create(obj, callback);
-    } else if (query === 'user') {
-        userModel.create(obj, callback);
-    } else if (query === 'review') {
-        itemModel.findOneAndUpdate({ id: productId },
-            { $push: { reviews: obj } })
-    }
+function insertOne(obj, callback) {
+    productModel.create(obj, callback);
 }
 //......................................
 
