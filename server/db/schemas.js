@@ -15,7 +15,7 @@ var productSchema = mongoose.Schema({
         size: String
     }],
     reviews: [{
-        stars: String,
+        stars: Number,
         description: String
     }]
 });
