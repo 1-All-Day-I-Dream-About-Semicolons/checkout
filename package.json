@@ -12,12 +12,14 @@
   },
   "scripts": {
     "seed": "node server/db/seed.js",
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack -d --watch",
+    "run-server": "node /home/rolo/Documents/SEI-hrsf131/checkout/server/server.js"
   },
   "dependencies": {
     "faker": "^5.1.0",
+    "lodash": "^4.17.20",
     "mongodb": "^3.6.3",
-    "path": "^0.12.7",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
@@ -26,7 +28,7 @@
     "axios": "^0.21.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.23.1",
-    "babel-loader": "^6.3.2",
+    "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.23.0",
     "body-parser": "^1.19.0",
@@ -36,8 +38,10 @@
     "jest": "^26.6.3",
     "mongoose": "^5.10.13",
     "nodemon": "^2.0.6",
+    "path": "^0.12.7",
     "superagent": "^6.1.0",
     "supertest": "^6.0.1",
-    "webpack": "^2.2.1"
+    "webpack": "^4.0.0",
+    "webpack-cli": "^4.2.0"
   }
 }
