@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import AvgReview from './AvgReview.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -58,7 +59,7 @@ class App extends React.Component {
         return (
             <div>
                 <div className='department'> {this.state.department}</div>
-                <div className='avgReview'> avgReview-component-placeholder {this.state.avgReview}</div>
+                <div className='avgReview'> <AvgReview avgScore = {this.state.avgReview} reviewsNum = {this.state.reviews.length} /> </div>
                 <div className='productName'> {this.state.productName}</div>
                 <div className='productColor'> {this.state.color}</div>
                 <div className='itemPrice'> {this.state.visiblePrice}</div>
