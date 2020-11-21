@@ -1,7 +1,7 @@
 import React from 'react';
 import ModalComponent from './ModalComponent.jsx';
 
-class SizeGuide extends React.Component {
+class Join extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -9,10 +9,10 @@ class SizeGuide extends React.Component {
         return (
             <ModalComponent
             toggle={this.props.toggle}
-            modalName={'Size Guide'}
+            modalName={'Join Creators Club'}
             content={'PLACEHOLDER CONTENT'}
             show={this.props.show} />
         );
     }
 }
-module.exports = SizeGuide;
+module.exports = Join;

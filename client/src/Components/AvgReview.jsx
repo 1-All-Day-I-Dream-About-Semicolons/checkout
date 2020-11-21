@@ -1,8 +1,13 @@
 import React from 'react';
 import Ratings from 'react-ratings-declarative';
+import styled from 'styled-components'
 
+const StyledAvgReview = styled.div`
+display: flex;
+justify-content: flex-end;
+`
 const AvgReview = props => (
-    <div>
+    <StyledAvgReview>
         <Ratings
             rating={props.avgScore}
             widgetRatedColors="black">
@@ -13,7 +18,7 @@ const AvgReview = props => (
             <Ratings.Widget />
         </Ratings>
         {props.reviewsNum}
-    </div>
+    </StyledAvgReview>
 
 );
 

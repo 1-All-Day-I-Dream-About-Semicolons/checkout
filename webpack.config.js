@@ -21,6 +21,12 @@ module.exports = {
         query: {
           presets: ['react', 'env']
        }
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+        },
       }
     ]
   }
