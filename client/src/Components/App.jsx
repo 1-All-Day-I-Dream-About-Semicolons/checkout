@@ -13,7 +13,7 @@ import GlobalFonts from '../fonts/fonts.js';
 
 const StyledApp = styled.div`
 `
-const StyledHeader = styled.div`
+const SideBySide = styled.div`
     display: flex;
     justify-content: space-between;
 `
@@ -154,32 +154,37 @@ class App extends React.Component {
             <StyledApp>
                 <GlobalFonts />
                 <div>
-                <StyledHeader>
-                    <Department> {this.state.department}</Department>
-                    <AvgReview avgScore={this.state.avgReview} reviewsNum={this.state.reviews.length} />
-                </StyledHeader>
-                <ProductName><span>{this.state.productName}</span></ProductName>
-                <StyledColor> <span>{this.state.color}</span></StyledColor>
-                <StyledPrice> <span>{this.state.visiblePrice}</span></StyledPrice>
-                <div className='selectSizeHeader'> Select Size</div>
-                <div className='sizes'>
-                    <Sizes stock={this.state.stock} toggle={this.toggleComponent} show={this.state.lowOnStock} />
-                </div>
-                <div className='sizesGuide'>
-                    <SizeGuide toggle={this.toggleComponent} show={this.state.sizeGuide} />
-                </div>
-                <div className='outOfStock'>
-                    <OutOfStock toggle={this.toggleComponent} show={this.state.outOfStock} />
-                </div>
-                <div className='favorite'>
-                    <Favorites toggle={this.toggleComponent} name={'Favorites'} favorited={this.state.favorites} />
-                </div>
-                <div className='bag'>
-                    <Bag toggle={this.toggleComponent} show={this.state.bag} />
-                </div>
-                <div className='join'>
-                    <Join toggle={this.toggleComponent} show={this.state.joinCreators} />
-                </div>
+                    <SideBySide>
+                        <Department> {this.state.department}</Department>
+                        <AvgReview avgScore={this.state.avgReview} reviewsNum={this.state.reviews.length} />
+                    </SideBySide>
+                    <ProductName><span>{this.state.productName}</span></ProductName>
+                    <StyledColor> <span>{this.state.color}</span></StyledColor>
+                    <StyledPrice> <span>{this.state.visiblePrice}</span></StyledPrice>
+                    <div className='selectSizeHeader'> Select Size</div>
+                    <div className='sizes'>
+                        <Sizes stock={this.state.stock} toggle={this.toggleComponent} show={this.state.lowOnStock} />
+                    </div>
+                    <SideBySide>
+                        <div className='sizesGuide'>
+                            <SizeGuide toggle={this.toggleComponent} show={this.state.sizeGuide} />
+                        </div>
+                        <div className='outOfStock'>
+                            <OutOfStock toggle={this.toggleComponent} show={this.state.outOfStock} />
+                        </div>
+                    </SideBySide>
+                    <SideBySide>
+                    <div className='bag'>
+                        <Bag toggle={this.toggleComponent} show={this.state.bag} />
+                    </div>
+                    <div className='favorite'>
+                        <Favorites toggle={this.toggleComponent} name={'Favorites'} favorited={this.state.favorites} />
+                    </div>
+                   
+                    </SideBySide>
+                    <div className='join'>
+                        <Join toggle={this.toggleComponent} show={this.state.joinCreators} />
+                    </div>
                 </div>
             </StyledApp>
         );
