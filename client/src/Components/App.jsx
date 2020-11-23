@@ -15,7 +15,7 @@ const StyledApp = styled.div`
 `
 const StyledHeader = styled.div`
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
 `
 const StyledColor = styled.h5`
     display: flex;

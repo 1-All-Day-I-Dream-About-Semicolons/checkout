@@ -12,7 +12,7 @@ const ModalComponent = (props) => {
     }
     const onClickOutside = (e) => {
         e.preventDefault();
-        if (e.target.className === 'modal-cover') {
+        if (e.target.className === 'sc-jSgupP ckDfJz modal-cover') {
             props.toggle(props.modalName);
         }
     }
