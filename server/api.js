@@ -11,7 +11,6 @@ router.route('/products')
         console.log('request failed', err);
         res.status(404).end();
       } {
-        console.log(response);
         res.status(200).json(response);
       }
     })
@@ -24,13 +23,13 @@ router.route('/products/:productId/')
             res.status(404).end();
           } {
               if (response.length) {
-                console.log('request successful', response);
+                res.set({
+                    'Access-Control-Allow-Origin': '*'
+                });
                 res.status(200).json(response);
               } else {
                 res.status(404).end();
               }
-           
-
           }
     })
 });

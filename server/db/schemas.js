@@ -7,7 +7,6 @@ var productSchema = mongoose.Schema({
     itemName: String,
     productPhoto: String,
     color: String,
-    sizeType: String,
     stock: [{
         itemId: Number,
         quantity: Number,
