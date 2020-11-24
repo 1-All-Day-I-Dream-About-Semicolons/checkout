@@ -1,13 +1,20 @@
 import React from 'react';
 import Size from './Size.jsx';
+import styled from 'styled-components'
 
+const StyledSizes = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(70px,1fr));
+    border-left: 1px solid #ebedee;
+    flex-wrap: wrap;
+`
 
 const Sizes = (props) => {
     return (
         <React.Fragment>
-            <div>{props.stock.map((item, i) => {
+            <StyledSizes>{props.stock.map((item, i) => {
                 return <Size item={item} index={i} toggle={props.toggle} />
-            })}</div>
+            })}</StyledSizes>
             {props.show !== -1 ?
                 (props.stock[props.show].quantity < 20 ?
                     props.stock[props.show].quantity < 10 ?
