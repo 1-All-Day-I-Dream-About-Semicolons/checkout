@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components'
+
 import AvgReview from './AvgReview.jsx';
 import Favorites from './Favorites.jsx';
 import SizeGuide from './SizeGuide.jsx';
@@ -7,13 +9,13 @@ import OutOfStock from './OutOfStock.jsx';
 import Bag from './Bag.jsx';
 import Join from './Join.jsx';
 import Sizes from './Sizes.jsx'
-import styled from 'styled-components'
+
 import GlobalFonts from '../fonts/fonts.js';
 
 
 const StyledApp = styled.div`
     position: relative;
-    z-index: 50;
+    z-index: 0;
     background: #fff;
     flex: 0 0 320px;
     flex-direction: column;
@@ -26,6 +28,7 @@ const StyledApp = styled.div`
 const SideBySide = styled.div`
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 `
 const StyledColor = styled.h5`
     display: flex;
@@ -67,6 +70,9 @@ const StyledBuyBox = styled.section`
     margin-top: 20px;
     box-sizing: border-box;
 `
+const bagStyle = {
+    'margin-top': '40px'
+};
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -186,7 +192,7 @@ class App extends React.Component {
                                 <OutOfStock toggle={this.toggleComponent} show={this.state.outOfStock} />
                             </div>
                         </SideBySide>
-                        <SideBySide>
+                        <SideBySide style = {bagStyle}>
                             <div className='bag'>
                                 <Bag toggle={this.toggleComponent} show={this.state.bag} />
                             </div>

@@ -1,19 +1,25 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const ModalButton = styled.button`
-padding: 10px;padding: 10px;
-font-size: 1.2em;
-font-weight: bold;
-background: white;
-border: 3px solid black;
-border-radius: 10px;
-cursor: pointer;
-transition: background 0.15s ease-out;
-&:hover {
-    background: black;
-    color: white;
-}
+const StyledCheckoutButton = styled.button`
+    display: inline-flex;    
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    width: 90%;
+    height: 50px;
+    font-weight: 700;
+    background-color: black;
+    color: white;   
+    position: relative;
+    box-shadow: 2px 2px grey;
+    &:hover {
+        color: grey;
+        cursor: pointer;
+    }
+    &:active {
+        transform: translate(3px, 3px)
+    }
 `
 const StyledSizeButton = styled.button`
     display: inline-flex;
@@ -21,19 +27,22 @@ const StyledSizeButton = styled.button`
     border: none;
     width: 100px;
     height: 20px;
-    text-decoration: underline;
     font-weight: 100;
-    background: white;
+    text-decoration: underline;
+    background-color: white;
     &:hover {
-        background: black;
+        background-color: black;
         color: white;
         cursor: pointer;
     }
 `
-const sizeStyle = {
+const rulerStyle = {
     width: '20%',
     position: 'relative',
-
+};
+const arrowStyle = {
+    width: '15%',
+    position: 'relative',
 };
 const outOfStockStyle = {
     'width': '125px'
@@ -48,7 +57,7 @@ const ModalTrigger = (props) => {
 
     return props.modalName === 'Size Guide'
         ? <StyledSizeButton onClick={clickHandler}>
-            <svg id="size-guide" viewBox="0 0 19 19" style = {sizeStyle}>
+            <svg id="size-guide" viewBox="0 0 19 19" style={rulerStyle}>
                 <title>  {props.modalName} </title>
                 <g fill="none" stroke="currentColor" stroke-miterlimit="10">
                     <path d="M.5 6.5h18v6H.5z"></path>
@@ -58,23 +67,20 @@ const ModalTrigger = (props) => {
             <div> {props.modalName}</div>
         </StyledSizeButton>
         : props.modalName === 'Size Out of Stock?'
-? <StyledSizeButton onClick={clickHandler} style = {outOfStockStyle}> {props.modalName} </StyledSizeButton>
+            ? <StyledSizeButton onClick={clickHandler} style={outOfStockStyle}> {props.modalName} </StyledSizeButton>
             : props.modalName === 'Checkout Bag'
-                ? <ModalButton onClick={clickHandler}> {props.modalName}</ModalButton>
-                : <ModalButton onClick={clickHandler}> {props.modalName}</ModalButton>
+                ? <StyledCheckoutButton onClick={clickHandler}>
+                    <div>{`ADD TO BAG`}</div>
+                    <svg id="arrow-right-long" viewBox="0 0 24 24" style={arrowStyle}>
+                        <title>arrow-right-long</title>
+                        <path d="M17.59 7l5 5-5 5M0 12h22" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></path>
+                    </svg>
+
+                </StyledCheckoutButton>
+                : <div onClick={clickHandler}> {props.modalName}</div>
 
 }
 
 module.exports = ModalTrigger;
 
 
-
-/* <button data-auto-id="size-chart-link" class="size-chart-link___1VPia gl-link gl-label gl-label--s" style="transform-origin: 0px 0px; opacity: 1; transform: scale(1, 1);">
-    <svg class="gl-icon gl-icon--size-communication" data-di-res-id="6ed540c5-2319c14e" data-di-rand="1606187919283">
-        <use xlink:href="#size-guide"></use>
-        </svg>Size guide</button >
-    <button data-auto-id="size-chart-link" class="size-chart-link___1VPia gl-link gl-label gl-label--s" style="transform-origin: 0px 0px; opacity: 1; transform: scale(1, 1);">
-        <svg class="gl-icon gl-icon--size-communication" data-di-res-id="6ed540c5-2319c14e" data-di-rand="1606187919283">
-            <use xlink:href="#size-guide"></use>
-                </svg>Size guide
-                </button > */
