@@ -44,6 +44,11 @@ const arrowStyle = {
     width: '15%',
     position: 'relative',
 };
+const uspsStyle = {
+    width: '15%',
+    position: 'relative',
+};
+
 const outOfStockStyle = {
     'width': '125px'
 }
@@ -77,7 +82,19 @@ const ModalTrigger = (props) => {
                     </svg>
 
                 </StyledCheckoutButton>
-                : <div onClick={clickHandler}> {props.modalName}</div>
+                : <StyledSizeButton onClick={clickHandler} style= {{'width': '100%', 'height': '100%'}}>
+                    <svg id="usp-delivery" viewBox="0 0 19 19" style = {uspsStyle}>
+                        <title>usp-delivery</title>
+                        <g fill="none" stroke="currentColor" stroke-miterlimit="10">
+                            <path d="M13.42 13.5H9.5"></path>
+                            <path stroke-linecap="square" d="M4.5 5.5h10l4 3v5h-2m-10 0h-2m0-6h-4"></path>
+                            <circle cx="8" cy="13" r="1.5"></circle>
+                            <circle cx="15" cy="13" r="1.5"></circle>
+                            <path stroke-linecap="square" d="M1.5 9.5h3m-2 2h2"></path>
+                        </g>
+                    </svg>
+                    {`JOIN CREATORS CLUB TO GET UNLIMITED FREE SHIPPING, RETURNS, & EXCHANGES`}
+                </StyledSizeButton>
 
 }
 

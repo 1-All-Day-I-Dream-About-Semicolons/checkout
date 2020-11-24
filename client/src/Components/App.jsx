@@ -20,10 +20,6 @@ const StyledApp = styled.div`
     flex: 0 0 320px;
     flex-direction: column;
     max-width: 320px;
-    will-change: max-width,transition,position;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transition: transform .6s ease;
 `
 const SideBySide = styled.div`
     display: flex;
@@ -204,7 +200,7 @@ class App extends React.Component {
 
                     </StyledBuyBox>
 
-                    <div className='join'>
+                    <div className='join' style = {{'margin-top': '20px'}}>
                         <Join toggle={this.toggleComponent} show={this.state.joinCreators} />
                     </div>
                 </div>
