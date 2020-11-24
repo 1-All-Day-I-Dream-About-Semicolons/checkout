@@ -27,21 +27,16 @@ const StyledColor = styled.h5`
     text-transform: none;
     letter-spacing: 0;
 `
-const StyledPrice = styled.div`
+const StyledPrice = styled.h5`
     display: flex;
     justify-content: flex-start;
-    font-weight: 500;
-    white-space: nowrap;    
+    font-weight: 700;
+    font-size: 18px;
+    font-family: AdihausDIN, Helvetica, Arial, sans-serif;  
 `
 const Department = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    font-size: 14px;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
+    width: 100px;
+    height: 20px;
 `
 const ProductName = styled.h1`
     display: block;
@@ -158,9 +153,9 @@ class App extends React.Component {
                         <Department> {this.state.department}</Department>
                         <AvgReview avgScore={this.state.avgReview} reviewsNum={this.state.reviews.length} />
                     </SideBySide>
-                    <ProductName><span>{this.state.productName}</span></ProductName>
-                    <StyledColor> <span>{this.state.color}</span></StyledColor>
-                    <StyledPrice> <span>{this.state.visiblePrice}</span></StyledPrice>
+                    <ProductName><span>{this.state.productName.toUpperCase()}</span></ProductName>
+                    <StyledColor> <span>{this.state.color.toUpperCase()}</span></StyledColor>
+                    <StyledPrice> <span>{`$${this.state.visiblePrice}`}</span></StyledPrice>
                     <div className='selectSizeHeader'> Select Size</div>
                     <div className='sizes'>
                         <Sizes stock={this.state.stock} toggle={this.toggleComponent} show={this.state.lowOnStock} />
