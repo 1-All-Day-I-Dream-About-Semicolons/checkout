@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
+import AdihausDIN from '../fonts/AdihausDIN.woff';
+import AdihausDIN2 from '../fonts/AdihausDIN.woff2';
 import AvgReview from './AvgReview.jsx';
 import Favorites from './Favorites.jsx';
 import SizeGuide from './SizeGuide.jsx';
@@ -10,8 +13,21 @@ import Bag from './Bag.jsx';
 import Join from './Join.jsx';
 import Sizes from './Sizes.jsx'
 
-import GlobalFonts from '../fonts/fonts.js';
 
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'AdishausDIN';
+    font-style: normal;
+    font-weight: normal;
+    src:
+      url('${AdihausDIN2}') format('woff2'),
+      url('${AdihausDIN}') format('woff');
+  }
+ 
+  html, body {
+    font-family: 'AdishausDIN', sans-serif;
+  }
+`;
 
 const StyledApp = styled.div`
     position: relative;
@@ -164,7 +180,7 @@ class App extends React.Component {
     render() {
         return (
             <StyledApp>
-                <GlobalFonts />
+                <GlobalStyle />
                 <div>
                     <SideBySide>
                         <Department> {this.state.department}</Department>
@@ -175,10 +191,10 @@ class App extends React.Component {
                     <StyledHeader> <span>{`$${this.state.visiblePrice}`}</span></StyledHeader>
                     <StyledBuyBox>
                         <div>
-                        <StyledHeader className='selectSizeHeader'> Select Size</StyledHeader>
-                        <div className='sizes'>
-                            <Sizes stock={this.state.stock} toggle={this.toggleComponent} show={this.state.lowOnStock} />
-                        </div>
+                            <StyledHeader className='selectSizeHeader'> Select Size</StyledHeader>
+                            <div className='sizes'>
+                                <Sizes stock={this.state.stock} toggle={this.toggleComponent} show={this.state.lowOnStock} />
+                            </div>
                         </div>
                         <SideBySide>
                             <div className='sizesGuide'>
@@ -188,7 +204,7 @@ class App extends React.Component {
                                 <OutOfStock toggle={this.toggleComponent} show={this.state.outOfStock} />
                             </div>
                         </SideBySide>
-                        <SideBySide style = {bagStyle}>
+                        <SideBySide style={bagStyle}>
                             <div className='bag'>
                                 <Bag toggle={this.toggleComponent} show={this.state.bag} />
                             </div>
@@ -200,7 +216,7 @@ class App extends React.Component {
 
                     </StyledBuyBox>
 
-                    <div className='join' style = {{'margin-top': '20px'}}>
+                    <div className='join' style={{ 'margin-top': '20px' }}>
                         <Join toggle={this.toggleComponent} show={this.state.joinCreators} />
                     </div>
                 </div>

@@ -3,6 +3,10 @@
   "jest": {
     "preset": "@shelf/jest-mongodb"
   },
+  "babel": {
+    "presets": ["react", "env"],
+    "plugins": ["babel-plugin-styled-components"]
+  },
   "version": "",
   "description": "",
   "author": "",

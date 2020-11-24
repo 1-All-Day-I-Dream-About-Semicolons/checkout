@@ -17,13 +17,14 @@ module.exports = {
       {                           // describes a file type and which modules to use to interpret them
         test : /\.jsx?/,
         include : SRC_DIR,
-        loader : 'babel-loader',
-        query: {
-          presets: ['react', 'env']
-       }
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader : 'babel-loader'
+        },
       },
       {
         test: /\.(woff|woff2)$/,
+        exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'url-loader',
         },
