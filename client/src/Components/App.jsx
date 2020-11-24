@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components'
+
 import AvgReview from './AvgReview.jsx';
 import Favorites from './Favorites.jsx';
 import SizeGuide from './SizeGuide.jsx';
@@ -7,15 +9,26 @@ import OutOfStock from './OutOfStock.jsx';
 import Bag from './Bag.jsx';
 import Join from './Join.jsx';
 import Sizes from './Sizes.jsx'
-import styled from 'styled-components'
+
 import GlobalFonts from '../fonts/fonts.js';
 
 
 const StyledApp = styled.div`
+    position: relative;
+    z-index: 0;
+    background: #fff;
+    flex: 0 0 320px;
+    flex-direction: column;
+    max-width: 320px;
+    will-change: max-width,transition,position;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s ease;
 `
 const SideBySide = styled.div`
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 `
 const StyledColor = styled.h5`
     display: flex;
@@ -27,7 +40,7 @@ const StyledColor = styled.h5`
     text-transform: none;
     letter-spacing: 0;
 `
-const StyledPrice = styled.h5`
+const StyledHeader = styled.h5`
     display: flex;
     justify-content: flex-start;
     font-weight: 700;
@@ -52,6 +65,14 @@ const ProductName = styled.h1`
     font-weight: 500;
     letter-spacing: 1.5px;
 `
+const StyledBuyBox = styled.section`
+    display: block;
+    margin-top: 20px;
+    box-sizing: border-box;
+`
+const bagStyle = {
+    'margin-top': '40px'
+};
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -155,28 +176,34 @@ class App extends React.Component {
                     </SideBySide>
                     <ProductName><span>{this.state.productName.toUpperCase()}</span></ProductName>
                     <StyledColor> <span>{this.state.color.toUpperCase()}</span></StyledColor>
-                    <StyledPrice> <span>{`$${this.state.visiblePrice}`}</span></StyledPrice>
-                    <div className='selectSizeHeader'> Select Size</div>
-                    <div className='sizes'>
-                        <Sizes stock={this.state.stock} toggle={this.toggleComponent} show={this.state.lowOnStock} />
-                    </div>
-                    <SideBySide>
-                        <div className='sizesGuide'>
-                            <SizeGuide toggle={this.toggleComponent} show={this.state.sizeGuide} />
+                    <StyledHeader> <span>{`$${this.state.visiblePrice}`}</span></StyledHeader>
+                    <StyledBuyBox>
+                        <div>
+                        <StyledHeader className='selectSizeHeader'> Select Size</StyledHeader>
+                        <div className='sizes'>
+                            <Sizes stock={this.state.stock} toggle={this.toggleComponent} show={this.state.lowOnStock} />
                         </div>
-                        <div className='outOfStock'>
-                            <OutOfStock toggle={this.toggleComponent} show={this.state.outOfStock} />
                         </div>
-                    </SideBySide>
-                    <SideBySide>
-                    <div className='bag'>
-                        <Bag toggle={this.toggleComponent} show={this.state.bag} />
-                    </div>
-                    <div className='favorite'>
-                        <Favorites toggle={this.toggleComponent} name={'Favorites'} favorited={this.state.favorites} />
-                    </div>
-                   
-                    </SideBySide>
+                        <SideBySide>
+                            <div className='sizesGuide'>
+                                <SizeGuide toggle={this.toggleComponent} show={this.state.sizeGuide} />
+                            </div>
+                            <div className='outOfStock'>
+                                <OutOfStock toggle={this.toggleComponent} show={this.state.outOfStock} />
+                            </div>
+                        </SideBySide>
+                        <SideBySide style = {bagStyle}>
+                            <div className='bag'>
+                                <Bag toggle={this.toggleComponent} show={this.state.bag} />
+                            </div>
+                            <div className='favorite'>
+                                <Favorites toggle={this.toggleComponent} name={'Favorites'} favorited={this.state.favorites} />
+                            </div>
+
+                        </SideBySide>
+
+                    </StyledBuyBox>
+
                     <div className='join'>
                         <Join toggle={this.toggleComponent} show={this.state.joinCreators} />
                     </div>
