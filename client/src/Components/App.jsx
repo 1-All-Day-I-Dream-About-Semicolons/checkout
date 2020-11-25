@@ -121,11 +121,10 @@ class App extends React.Component {
         })
         return sum / counter;
     }
-    getProduct(id) {
-        var id = id || '1';
-        axios.get(`http://localhost:3005/api/products/${id}/`)
+    getProduct() {
+        const queryString = window.location.pathname === '/' ? '/products/1' :  window.location.pathname;
+        axios.get( 'http://localhost:3005' + '/api' + queryString)
             .then((response) => {
-                console.log(response.data);
                 const data = response.data[0];
                 var avgReview = this.getAvgReview(data.reviews);
                 this.setState({
