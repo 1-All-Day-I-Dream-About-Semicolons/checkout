@@ -122,10 +122,9 @@ class App extends React.Component {
         return sum / counter;
     }
     getProduct() {
-        console.log( window.location.href.slice(0,-10));
-        axios.get(window.location.href.slice(0, -10))
+        const queryString = window.location.pathname === '/' ? '/products/1' :  window.location.pathname;
+        axios.get( 'http://localhost:3005' + '/api' + queryString)
             .then((response) => {
-                console.log(response.data);
                 const data = response.data[0];
                 var avgReview = this.getAvgReview(data.reviews);
                 this.setState({
