@@ -15,7 +15,7 @@ router.route('/products')
       }
     })
   });
-router.route('/products/:productId/')
+router.route('/products/:productId')
 .get((req, res) => {
     dbModels.findProductById(req.params.productId, (err, response) => {
         if (err) {

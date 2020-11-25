@@ -8,8 +8,7 @@ var app = express();
 mongoose.connect('mongodb://localhost/checkout');
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist' )));
-
+app.use('/api/products/:productId/checkout',express.static(path.join(__dirname, '..', 'client', 'dist' )));
 app.use('/api', APIrouter);
 
 module.exports = app;

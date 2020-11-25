@@ -121,9 +121,9 @@ class App extends React.Component {
         })
         return sum / counter;
     }
-    getProduct(id) {
-        var id = id || '1';
-        axios.get(`http://localhost:3005/api/products/${id}/`)
+    getProduct() {
+        console.log( window.location.href.slice(0,-10));
+        axios.get(window.location.href.slice(0, -10))
             .then((response) => {
                 console.log(response.data);
                 const data = response.data[0];
