@@ -1,0 +1,1 @@
+rsync -r --delete --progress -e "ssh -i /home/rolo/Documents/SEI-hrsf131/checkout/checkout.pem" /home/rolo/Documents/SEI-hrsf131/checkout/ ec2-user@ec2-54-193-2-141.us-west-1.compute.amazonaws.com:~

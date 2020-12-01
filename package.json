@@ -18,7 +18,7 @@
     "seed": "node server/db/seed.js",
     "test": "jest",
     "build": "webpack -d --watch",
-    "run-server": "node /home/rolo/Documents/SEI-hrsf131/checkout/server/server.js"
+    "run-server": "node server/server.js"
   },
   "dependencies": {
     "faker": "^5.1.0",

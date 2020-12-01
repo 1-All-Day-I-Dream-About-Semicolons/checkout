@@ -1,0 +1,1 @@
+ssh -i "../key_pairs/checkout.pem" ec2-user@ec2-54-193-85-172.us-west-1.compute.amazonaws.com

@@ -1,4 +1,4 @@
-const app = require('/home/rolo/Documents/SEI-hrsf131/checkout/server/app.js');
+const app = require('./app.js');
 
 
 const PORT = 3005;
