@@ -123,7 +123,7 @@ class App extends React.Component {
     }
     getProduct() {
         const queryString = window.location.pathname === '/' ? '/products/1' :  window.location.pathname;
-        axios.get( 'http://localhost:3005' + '/api' + queryString)
+        axios.get('/api' + queryString)
             .then((response) => {
                 const data = response.data[0];
                 var avgReview = this.getAvgReview(data.reviews);
