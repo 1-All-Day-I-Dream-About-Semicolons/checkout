@@ -1,6 +1,6 @@
 var faker = require('faker');
 var mongoose = require('mongoose');
-var dbModels = require('/home/rolo/Documents/SEI-hrsf131/checkout/server/db/schemas.js');
+var dbModels = require('./schemas.js');
 
 mongoose.connect('mongodb://localhost/checkout');
 var seedGenerator = function (seedSize) {

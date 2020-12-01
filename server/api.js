@@ -1,5 +1,5 @@
 var express = require('express');
-var dbModels = require('/home/rolo/Documents/SEI-hrsf131/checkout/server/db/schemas.js');
+var dbModels = require('./db/schemas.js');
 var router = express.Router();
 
 
